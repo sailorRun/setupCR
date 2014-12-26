@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<band>
+	
+	<banditem>
+     <bandid>band0</bandid>
+     <arfcn_min>1</arfcn_min>
+     <arfcn_max>124</arfcn_max>
+  </banditem>
+  
+  <banditem>
+     <bandid>bandII</bandid>
+     <arfcn_min>512</arfcn_min>
+     <arfcn_max>810</arfcn_max>
+  </banditem>
+
+  <banditem>
+     <bandid>bandIII</bandid>
+     <arfcn_min>512</arfcn_min>
+     <arfcn_max>885</arfcn_max>
+  </banditem>
+  
+  <banditem>
+     <bandid>bandIII.A</bandid>
+     <arfcn_min>637</arfcn_min>
+     <arfcn_max>885</arfcn_max>
+  </banditem>
+  
+  <banditem>
+     <bandid>bandV</bandid>
+     <arfcn_min>128</arfcn_min>
+     <arfcn_max>251</arfcn_max>
+  </banditem>
+  
+  <banditem>
+     <bandid>bandVIII</bandid>
+     <arfcn_min>0</arfcn_min>
+     <arfcn_max>124</arfcn_max>
+     <arfcn_min>975</arfcn_min>
+     <arfcn_max>1023</arfcn_max>
+  </banditem>
+	
+</band>

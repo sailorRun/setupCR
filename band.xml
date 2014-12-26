@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--frequency unit: KHz-->
+<band>
+      <banditem>
+         <bandid>band0</bandid>
+         <ulfmin>890000</ulfmin>
+         <ulfmax>915000</ulfmax>
+         <dlfmin>935000</dlfmin>
+         <dlfmax>960000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandI</bandid>
+         <ulfmin>1920000</ulfmin>
+         <ulfmax>1980000</ulfmax>
+         <dlfmin>2110000</dlfmin>
+         <dlfmax>2170000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandII</bandid>
+         <ulfmin>1850000</ulfmin>
+         <ulfmax>1910000</ulfmax>
+         <dlfmin>1930000</dlfmin>
+         <dlfmax>1990000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandIII</bandid>
+         <ulfmin>1710000</ulfmin>
+         <ulfmax>1785000</ulfmax>
+         <dlfmin>1805000</dlfmin>
+         <dlfmax>1880000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandIII.A</bandid>
+         <ulfmin>1735000</ulfmin>
+         <ulfmax>1785000</ulfmax>
+         <dlfmin>1830000</dlfmin>
+         <dlfmax>1880000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandIV</bandid>
+         <ulfmin>1710000</ulfmin>
+         <ulfmax>1755000</ulfmax>
+         <dlfmin>2110000</dlfmin>
+         <dlfmax>2155000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandV</bandid>
+         <ulfmin>824000</ulfmin>
+         <ulfmax>849000</ulfmax>
+         <dlfmin>869000</dlfmin>
+         <dlfmax>894000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandV.A</bandid>
+         <ulfmin>839000</ulfmin>
+         <ulfmax>849000</ulfmax>
+         <dlfmin>884000</dlfmin>
+         <dlfmax>894000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandV.B</bandid>
+         <ulfmin>824000</ulfmin>
+         <ulfmax>839000</ulfmax>
+         <dlfmin>869000</dlfmin>
+         <dlfmax>884000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandVI</bandid>
+         <ulfmin>830000</ulfmin>
+         <ulfmax>840000</ulfmax>
+         <dlfmin>875000</dlfmin>
+         <dlfmax>885000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandVII</bandid>
+         <ulfmin>2500000</ulfmin>
+         <ulfmax>2570000</ulfmax>
+         <dlfmin>2620000</dlfmin>
+         <dlfmax>2690000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandVIII</bandid>
+         <ulfmin>880000</ulfmin>
+         <ulfmax>915000</ulfmax>
+         <dlfmin>925000</dlfmin>
+         <dlfmax>960000</dlfmax>
+      </banditem>
+   
+      <banditem>
+         <bandid>BandIX</bandid>
+         <ulfmin>1749900</ulfmin>
+         <ulfmax>1784900</ulfmax>
+         <dlfmin>1844900</dlfmin>
+         <dlfmax>1879900</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandX</bandid>
+         <ulfmin>1710000</ulfmin>
+         <ulfmax>1770000</ulfmax>
+         <dlfmin>2110000</dlfmin>
+         <dlfmax>2170000</dlfmax>
+      </banditem>
+      
+      <banditem>
+         <bandid>BandXI</bandid>
+         <ulfmin>1427900</ulfmin>
+         <ulfmax>1437900</ulfmax>
+         <dlfmin>1475900</dlfmin>
+         <dlfmax>1485900</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXI_Full</bandid>
+         <ulfmin>1427900</ulfmin>
+         <ulfmax>1447900</ulfmax>
+         <dlfmin>1475900</dlfmin>
+         <dlfmax>1495900</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXII</bandid>
+         <ulfmin>699000</ulfmin>
+         <ulfmax>715000</ulfmax>
+         <dlfmin>729000</dlfmin>
+         <dlfmax>745000</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXII.A</bandid>
+         <ulfmin>699000</ulfmin>
+         <ulfmax>715000</ulfmax>
+         <dlfmin>729000</dlfmin>
+         <dlfmax>745000</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXIII</bandid>
+         <ulfmin>777000</ulfmin>
+         <ulfmax>787000</ulfmax>
+         <dlfmin>746000</dlfmin>
+         <dlfmax>756000</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXIV</bandid>
+         <ulfmin>788000</ulfmin>
+         <ulfmax>798000</ulfmax>
+         <dlfmin>758000</dlfmin>
+         <dlfmax>768000</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXVII</bandid>
+         <ulfmin>704000</ulfmin>
+         <ulfmax>716000</ulfmax>
+         <dlfmin>734000</dlfmin>
+         <dlfmax>746000</dlfmax>
+      </banditem>
+
+      <banditem>
+         <bandid>BandXIX</bandid>
+         <ulfmin>830000</ulfmin>
+         <ulfmax>845000</ulfmax>
+         <dlfmin>875000</dlfmin>
+         <dlfmax>890000</dlfmax>
+      </banditem>
+
+      <banditem>
+        <bandid>BandXX</bandid>
+        <ulfmin>832000</ulfmin>
+        <ulfmax>862000</ulfmax>
+        <dlfmin>791000</dlfmin>
+        <dlfmax>821000</dlfmax>
+      </banditem>
+      
+             <banditem>
+          <bandid>Band21</bandid>
+          <ulfmin>1447900</ulfmin>
+          <ulfmax>1462900</ulfmax>
+          <dlfmin>1495900</dlfmin>
+          <dlfmax>1510900</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band24</bandid>
+          <ulfmin>1626500</ulfmin>
+          <ulfmax>1660500</ulfmax>
+          <dlfmin>1525000</dlfmin>
+          <dlfmax>1559000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band25</bandid>
+          <ulfmin>1850000</ulfmin>
+          <ulfmax>1915000</ulfmax>
+          <dlfmin>1930000</dlfmin>
+          <dlfmax>1995000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band28</bandid>
+          <ulfmin>703000</ulfmin>
+          <ulfmax>748000</ulfmax>
+          <dlfmin>758000</dlfmin>
+          <dlfmax>803000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band28.A</bandid>
+          <ulfmin>718000</ulfmin>
+          <ulfmax>748000</ulfmax>
+          <dlfmin>773000</dlfmin>
+          <dlfmax>803000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band28.B</bandid>
+          <ulfmin>703000</ulfmin>
+          <ulfmax>733000</ulfmax>
+          <dlfmin>758000</dlfmin>
+          <dlfmax>788000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band26.A</bandid>
+          <ulfmin>817000</ulfmin>
+          <ulfmax>824000</ulfmax>
+          <dlfmin>862000</dlfmin>
+          <dlfmax>869000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band30</bandid>
+          <ulfmin>2305000</ulfmin>
+          <ulfmax>2315000</ulfmax>
+          <dlfmin>2350000</dlfmin>
+          <dlfmax>2360000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band38</bandid>
+          <ulfmin>2570000</ulfmin>
+          <ulfmax>2620000</ulfmax>
+          <dlfmin>2570000</dlfmin>
+          <dlfmax>2620000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band38.A</bandid>
+          <ulfmin>2575000</ulfmin>
+          <ulfmax>2615000</ulfmax>
+          <dlfmin>2575000</dlfmin>
+          <dlfmax>2615000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band39.A</bandid>
+          <ulfmin>1880000</ulfmin>
+          <ulfmax>1915000</ulfmax>
+          <dlfmin>1880000</dlfmin>
+          <dlfmax>1915000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40</bandid>
+          <ulfmin>2300000</ulfmin>
+          <ulfmax>2382000</ulfmax>
+          <dlfmin>2300000</dlfmin>
+          <dlfmax>2382000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.A</bandid>
+          <ulfmin>2320000</ulfmin>
+          <ulfmax>2370000</ulfmax>
+          <dlfmin>2320000</dlfmin>
+          <dlfmax>2370000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.B</bandid>
+          <ulfmin>2302500</ulfmin>
+          <ulfmax>2322500</ulfmax>
+          <dlfmin>2302500</dlfmin>
+          <dlfmax>2322500</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.C</bandid>
+          <ulfmin>2305000</ulfmin>
+          <ulfmax>2325000</ulfmax>
+          <dlfmin>2305000</dlfmin>
+          <dlfmax>2325000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.D</bandid>
+          <ulfmin>2320000</ulfmin>
+          <ulfmax>2340000</ulfmax>
+          <dlfmin>2320000</dlfmin>
+          <dlfmax>2340000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.E</bandid>
+          <ulfmin>2327500</ulfmin>
+          <ulfmax>2347500</ulfmax>
+          <dlfmin>2327500</dlfmin>
+          <dlfmax>2347500</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.F</bandid>
+          <ulfmin>2357500</ulfmin>
+          <ulfmax>2377500</ulfmax>
+          <dlfmin>2357500</dlfmin>
+          <dlfmax>2377500</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.G</bandid>
+          <ulfmin>2325000</ulfmin>
+          <ulfmax>2345000</ulfmax>
+          <dlfmin>2325000</dlfmin>
+          <dlfmax>2345000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.M</bandid>
+          <ulfmin>2335000</ulfmin>
+          <ulfmax>2355000</ulfmax>
+          <dlfmin>2335000</dlfmin>
+          <dlfmax>2355000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.Q</bandid>
+          <ulfmin>2370000</ulfmin>
+          <ulfmax>2390000</ulfmax>
+          <dlfmin>2370000</dlfmin>
+          <dlfmax>2390000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.Y</bandid>
+          <ulfmin>2300000</ulfmin>
+          <ulfmax>2320000</ulfmax>
+          <dlfmin>2300000</dlfmin>
+          <dlfmax>2320000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band40.Z</bandid>
+          <ulfmin>2365000</ulfmin>
+          <ulfmax>2385000</ulfmax>
+          <dlfmin>2365000</dlfmin>
+          <dlfmax>2385000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band41</bandid>
+          <ulfmin>2496000</ulfmin>
+          <ulfmax>2690000</ulfmax>
+          <dlfmin>2496000</dlfmin>
+          <dlfmax>2690000</dlfmax>
+       </banditem>
+       
+       <banditem>
+          <bandid>Band41.A</bandid>
+          <ulfmin>2496000</ulfmin>
+          <ulfmax>2658000</ulfmax>
+          <dlfmin>2496000</dlfmin>
+          <dlfmax>2658000</dlfmax>
+       </banditem>
+       
+</band>

@@ -1,0 +1,340 @@
+<!DOCTYPE HTML> 
+<html>
+<title>carrier shell command generator</title>
+<head>
+   <style>
+      .error {color: #00FF00;}
+   </style>
+<script src="checkPublicPara.js"></script>
+<script src="checkWCDMAPara.js"></script>
+<script src="checkLteGsmPara.js"></script>
+<script src="generateWCDMAShellCmd.js"></script>
+<script src="generateLteGsmShellCmd.js"></script>
+</head>
+<body onload="updateUI()""> 
+
+<h2>select parameters you need</h2>
+   ratType:
+   <select name="ratType" id="ratType" onchange=updateArea(value)>
+     <option value="3" selected>WCDMA</option>
+     <option value="0">FDD</option>
+     <option value="1">TDD</option>
+     <option value="2">GSM</option>
+  </select><br/>
+   Shell type:
+   <input type="radio" name="shellType" value="shell" checked="checked">shell
+   <input type="radio" name="shellType" value="tsh">tsh<br/>
+   <p id="bandArea">Band:
+   <select id="band" onchange="updateInfoDueToBand()">
+   </select><br/></p>
+   <p id="bandArfcnArea">Band:
+   <select id="bandArfcn" onchange="updateArfcnArea()">
+   </select><br/></p>
+
+<form id="WCDMA" onsubmit="return generateWCDMACmd();"> <!-- realize by JS. -->
+   Mode:
+   <input type="radio" name="configMode" value="simple" onclick="simpleOrAdvanced(value)"  checked="checked">simple
+   <input type="radio" name="configMode" value="advanced" onclick="simpleOrAdvanced(value)">advanced<br/><br/>
+
+<br/>carrier configuration:<br/>
+   RF_A:<input id="A" type="checkbox" checked onclick="selectRFPort(checked, id)">
+   <div id="portSectionA">
+   TR device 1:<input id="TR_1" type="checkbox" value="tr1" checked onchange="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeA1" onclick="updateTrDevice(name,value,0)" value="TX">TX
+   <input type="radio" name="carrierTypeA1" onclick=updateTrDevice(name,value,0) value="RX">RX
+   <input type="radio" name="carrierTypeA1" onclick="updateTrDevice(name,value,0)" value="TX_RX" checked>TX+RX<br/>
+   	<fieldset id="advanceTR1"><input type="hidden" id="connectorIdTR1" value="1">
+   	dlSlotId<input type="text" id="dlSlotIdTR1" value="1">
+   	ulSlotId<input type="text" id="ulSlotIdTR1" value="1">
+   	<input type="hidden" id="dlPortIdTR1" value="1">
+   	<input type="hidden" id="ulPortIdTR1" value="1">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR1" value="2">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR1" value="1">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR1" value="6">
+   	<input type="hidden" id="axcIdUlTR1" value="1">
+   	txFreq<input type="text" id="txFreqTR1" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR1"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR1" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR1" value="1" readonly><br/></fieldset>
+   	
+   TR device 3:<input id="TR_3" type="checkbox" value="tr3" onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeA3" onclick="updateTrDevice(name,value,0)" value="TX" disabled>TX
+   <input type="radio" name="carrierTypeA3" onclick="updateTrDevice(name,value,0)" value="RX" disabled>RX
+   <input type="radio" name="carrierTypeA3" onclick="updateTrDevice(name,value,0)" value="TX_RX" disabled>TX+RX<br/>
+   	<fieldset id="advanceTR3"><input type="hidden" id="connectorIdTR3" value="1">
+   	dlSlotId<input type="text" id="dlSlotIdTR3" value="2">
+   	ulSlotId<input type="text" id="ulSlotIdTR3" value="3">
+   	<input type="hidden" id="dlPortIdTR3" value="2">
+   	<input type="hidden" id="ulPortIdTR3" value="3">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR3" value="4">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR3" value="5">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR3" value="6">
+   	<input type="hidden" id="axcIdUlTR3" value="1">
+   	txFreq<input type="text" id="txFreqTR3" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR3"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR3" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR3" value="3" readonly><br/></fieldset>
+   
+   TR device 5:<input id="TR_5" type="checkbox" value="tr5" onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeA5" onclick="updateTrDevice(name,value,0)" value="TX" disabled>TX
+   <input type="radio" name="carrierTypeA5" onclick="updateTrDevice(name,value,0)" value="RX" disabled>RX
+   <input type="radio" name="carrierTypeA5" onclick="updateTrDevice(name,value,0)" value="TX_RX" disabled>TX+RX<br/>
+   	<fieldset id="advanceTR5"><input type="hidden" id="connectorIdTR5" value="1">
+   	dlSlotId<input type="text" id="dlSlotIdTR5" value="3">
+   	ulSlotId<input type="text" id="ulSlotIdTR5" value="5">
+   	<input type="hidden" id="dlPortIdTR5" value="3">
+   	<input type="hidden" id="ulPortIdTR5" value="5">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR5" value="6">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR5" value="11">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR5" value="6">
+   	<input type="hidden" id="axcIdUlTR5" value="1">
+   	txFreq<input type="text" id="txFreqTR5" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR5"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR5" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR5" value="5" readonly><br/></fieldset>
+   
+   TR device 7:<input id="TR_7" type="checkbox" value="tr7" onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeA7" onclick="updateTrDevice(name,value,0)" value="TX" disabled>TX
+   <input type="radio" name="carrierTypeA7" onclick="updateTrDevice(name,value,0)" value="RX" disabled>RX
+   <input type="radio" name="carrierTypeA7" onclick="updateTrDevice(name,value,0)" value="TX_RX" disabled>TX+RX<br/>
+   	<fieldset id="advanceTR7"><input type="hidden" id="connectorIdTR7" value="1" >
+   	dlSlotId<input type="text" id="dlSlotIdTR7" value="4">
+   	ulSlotId<input type="text" id="ulSlotIdTR7" value="7">
+   	<input type="hidden" id="dlPortIdTR7" value="4">
+   	<input type="hidden" id="ulPortIdTR7" value="7">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR7" value="8">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR7" value="15">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR7" value="6">
+   	<input type="hidden" id="axcIdUlTR7" value="1">
+   	txFreq<input type="text" id="txFreqTR7" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR7"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR7" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR7" value="7" readonly><br/></fieldset>
+   	
+   	<p id="advanceTpaAi1">TPA device:<!-- 有TX时 才有意义 -->
+   	<input type="hidden" id="tpaIdA" value="1" >
+   	<input type="hidden" id="maxPowerConsumptionA" value="440" >
+   	<input type="hidden" id="numberOfCarriersA" value="1" >      <!-- 关联carrier set -->
+   	<input type="hidden" id="lowFreqBandEdgeA" value="4625" >        <!-- 关联band -->
+   	<input type="hidden" id="highFreqBandEdgeA" value="4800" >
+   	powerClass<input type="text" id="powerClassA" value="4300" onchange=checkPowerClass(value)>
+   	<input type="checkbox" id="TpaEnabledA" hidden checked><br/>
+    AI device:
+   	<input type="hidden" id="devIdA" value="1" >
+   	tmaMode<input type="text" id="tmaModeA" value="0">
+   	<input type="hidden" id="ulBr1A" value="1">
+   	<input type="hidden" id="ulBr2A" value="5">
+   	<input type="hidden" id="ulBr3A" value="11">
+   	<input type="hidden" id="ulBr4A" value="15">
+   	<input type="hidden" id="dlBr1A" value="2">
+   	<input type="hidden" id="dlBr2A" value="4">
+   	<input type="hidden" id="dlBr3A" value="6">
+   	<input type="hidden" id="dlBr4A" value="8">
+   	dualPaMode<input type="text" id="dualPaModeA" value="0"></p>
+   </div>
+
+   <br/>RF_B:<input id="B" type="checkbox" checked onclick="selectRFPort(checked, id)"><br/>
+   <div id="portSectionB">
+   TR device 2:<input id="TR_2" type="checkbox" value="tr2" checked onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeB2" onclick="updateTrDevice(name,value,0)" value="TX">TX
+   <input type="radio" name="carrierTypeB2" onclick="updateTrDevice(name,value,0)" value="RX" checked="checked">RX
+   <input type="radio" name="carrierTypeB2" onclick="updateTrDevice(name,value,0)" value="TX_RX">TX+RX<br/>
+   <fieldset id="advanceTR2"><input type="hidden" id="connectorIdTR2" value="1">
+   	dlSlotId<input type="text" id="dlSlotIdTR2" value="5">
+   	ulSlotId<input type="text" id="ulSlotIdTR2" value="2">
+   	<input type="hidden" id="dlPortIdTR2" value="5">
+   	<input type="hidden" id="ulPortIdTR2" value="2">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR2" value="10">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR2" value="3">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR2" value="6">
+   	<input type="hidden" id="axcIdUlTR2" value="1">
+   	txFreq<input type="text" id="txFreqTR2" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR2"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR2" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+    trId<input type="text" id="trIdTR2" value="2" readonly><br/></fieldset>
+   	
+   TR device 4:<input id="TR_4" type="checkbox" value="tr4" onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeB4" onclick="updateTrDevice(name,value,0)" value="TX" disabled>TX
+   <input type="radio" name="carrierTypeB4" onclick="updateTrDevice(name,value,0)" value="RX" disabled>RX
+   <input type="radio" name="carrierTypeB4" onclick="updateTrDevice(name,value,0)" value="TX_RX" disabled>TX+RX<br/>
+   <fieldset id="advanceTR4"><input type="hidden" id="connectorIdTR4" value="1" >
+   	dlSlotId<input type="text" id="dlSlotIdTR4" value="6">
+   	ulSlotId<input type="text" id="ulSlotIdTR4" value="4">
+   	<input type="hidden" id="dlPortIdTR4" value="6">
+   	<input type="hidden" id="ulPortIdTR4" value="4">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR4" value="12">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR4" value="9">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR4" value="6">
+   	<input type="hidden" id="axcIdUlTR4" value="1">
+   	txFreq<input type="text" id="txFreqTR4" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR4"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR4" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR4" value="4" readonly><br/></fieldset>
+   	
+   TR device 6:<input id="TR_6" type="checkbox" value="tr6" onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeB6" onclick="updateTrDevice(name,value,0)" value="TX" disabled>TX
+   <input type="radio" name="carrierTypeB6" onclick="updateTrDevice(name,value,0)" value="RX" disabled>RX
+   <input type="radio" name="carrierTypeB6" onclick="updateTrDevice(name,value,0)" value="TX_RX" disabled>TX+RX<br/>
+   <fieldset id="advanceTR6"><input type="hidden" id="connectorIdTR6" value="1" >
+   	dlSlotId<input type="text" id="dlSlotIdTR6" value="7">
+   	ulSlotId<input type="text" id="ulSlotIdTR6" value="6">
+   	<input type="hidden" id="dlPortIdTR6" value="7">
+   	<input type="hidden" id="ulPortIdTR6" value="6">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR6" value="14">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR6" value="13">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR6" value="6">
+   	<input type="hidden" id="axcIdUlTR6" value="1">
+   	txFreq<input type="text" id="txFreqTR6" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR6"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR6" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR6" value="6" readonly><br/></fieldset>
+   	
+   TR device 8:<input id="TR_8" type="checkbox" value="tr8" onclick="setRadio(id, checked)">
+   carrier type:
+   <input type="radio" name="carrierTypeB8" onclick="updateTrDevice(name,value,0)" value="TX" disabled>TX
+   <input type="radio" name="carrierTypeB8" onclick="updateTrDevice(name,value,0)" value="RX" disabled>RX
+   <input type="radio" name="carrierTypeB8" onclick="updateTrDevice(name,value,0)" value="TX_RX" disabled>TX+RX<br/>
+   <fieldset id="advanceTR8"><input type="hidden" id="connectorIdTR8" value="1" >
+   	dlSlotId<input type="text" id="dlSlotIdTR8" value="8">
+   	ulSlotId<input type="text" id="ulSlotIdTR8" value="8">
+   	<input type="hidden" id="dlPortIdTR8" value="8">
+   	<input type="hidden" id="ulPortIdTR8" value="8">
+   	<input type="hidden" id="dlCellCarrierBranchIdTR8" value="16">  <!-- dlBr1 -->
+   	<input type="hidden" id="ulCellCarrierBranchIdTR8" value="17">  <!-- ulBr1 -->
+   	<input type="hidden" id="axcIdDlTR8" value="6">
+   	<input type="hidden" id="axcIdUlTR8" value="1">
+   	txFreq<input type="text" id="txFreqTR8" value="0xFFFF" onchange=checkTxFreq(value)><span>MHz</span>   <!-- band -->
+   	<select type="text" id="chiprateTR8"" hidden>
+     <option value="0">1536MCS</option>
+     <option value="1">768MCS</option>
+     <option value="2" selected="selected">384MCS</option>
+     <option value="3">125MCS</option>-->
+   </select>
+   	rxFreq<input type="text" id="rxFreqTR8" value="0xFFFF" onchange=checkRxFreq(value)><span>MHz</span> <!-- no RX then FFFF -->
+   	trId<input type="text" id="trIdTR8" value="8" readonly><br/></fieldset>
+   	
+    <p id="advanceTpaAi2">TPA device:<!-- 有TX时 才有意义 -->
+   	<input type="hidden" id="tpaIdB" value="2" >
+   	<input type="hidden" id="maxPowerConsumptionB" value="440" >
+   	<input type="hidden" id="numberOfCarriersB" value="1" >      <!-- 关联carrier set -->
+   	<input type="hidden" id="lowFreqBandEdgeB" value="4625" >        <!-- 关联band -->
+   	<input type="hidden" id="highFreqBandEdgeB" value="4800" >
+   	powerClass<input type="text" id="powerClassB" value="4300" onchange=checkPowerClass(value)>
+   	<input type="checkbox" id="TpaEnabledB" hidden><br/>
+    AI device:
+   	<input type="hidden" id="devIdB" value="2" >
+   	tmaMode<input type="text" id="tmaModeB" value="0">
+   	<input type="hidden" id="ulBr1B" value="11">
+   	<input type="hidden" id="ulBr2B" value="15">
+   	<input type="hidden" id="ulBr3B" value="13">
+   	<input type="hidden" id="ulBr4B" value="17">
+   	<input type="hidden" id="dlBr1B" value="10">
+   	<input type="hidden" id="dlBr2B" value="12">
+   	<input type="hidden" id="dlBr3B" value="14">
+   	<input type="hidden" id="dlBr4B" value="16">
+   	dualPaMode<input type="text" id="dualPaModeB" value="0"></p>
+   </div>
+   
+   <p id="cpri">CPRI(simulator only):<br/>
+   	portNo<input type="text" id="portNo" value="0"><br/>
+   	hfnSync<input type="text" id="hfnSync" value="1"><br/>
+   	linkOp<input type="text" id="linkOp" value="1"><br/>
+   	syncBit<input type="text" id="syncBit" value="1"><br/>
+   	tAdv<input type="text" id="tAdv" value="1234"><br/>
+   	refClkPort<input type="text" id="refClkPort" value="0"><br/>
+   	</p>
+   
+   <br/>
+   <input type="submit" value="generate"/>
+   <input type="reset" value="reset" onclick="updateUI()"/><br/><br/>
+</form>
+
+<form id="LTEGSM" hidden  onsubmit="return generateLTEGSMCmd();">   
+
+<br/>carrier configuration:<br/>
+   devId:<input id="devId" type="input" value="1"><span>[0, 255]</span><br/>
+   receiveTransmit:<select id="receiveTransmit" onchange="updateLteCarrFreqRange()">
+   	<option value="1" selected>TX</option>
+    <option value="0">RX</option>
+   </select><br/>
+   <p id="carrierFreqArea" hidden>carrierFrequency:<input id="carrierFrequency" type="input" value="0"><span id="carrFreqRange">kHz</span><br/></p>
+   <p id="arfcnArea" hidden>arfcnRange: <span id="arfcnRange"></span><br/>
+   arfcnMin:<input id="arfcnMin" type="input" value="0">
+   arfcnMax:<input id="arfcnMax" type="input" value="0"><br/></p>
+   txCarrierPowerAllocation:<input id="txCarrierPowerAllocation" type="input" value="-90"><span>(-500, 0)</span><br/>
+   <p id="carrierBandwidthArea">carrierBandwidth:<input id="carrierBandwidth" type="input" value="5000"><span>kHz</span><br/></p>
+   frameStartOffset:<input id="frameStartOffset" type="input" value="0"><br/>
+   setupRfPort:<select id="setupRfPort">
+   	<option value="0" selected>A</option>
+    <option value="1">B</option>
+   </select><br/>
+   <p id="txCarrGainSettingArea">txCarrGainSetting:<input id="txCarrGainSetting" type="input" value="0"><br/></p>
+   <p id="subBandFunctionOnArea">subBandFunctionOn:<input id="subBandFunctionOn" type="checkbox" onclick="updateSubBandFuncOn()"><br/></p>
+   <p id="dlSubBandBandwidthArea">dlSubBandBandwidth:<input id="dlSubBandBandwidth" type="input" value="0"><span>kHz</span><br/></p>
+   <input id="dlSubBandIqDataScalingMode" type="input" value="0" hidden>
+   <p id="bbSampleRateArea" hidden>bbSampleRate:<input id="bbSampleRate" type="input" value="7680"><span>MCS</span><br/></p>
+   <input type="input" id="noOfCpriLinks" value="1" checked="checked" hidden>
+   cpriPort:<input id="cpriPort" type="input" value="0"><br/>
+   <input id="axcId" type="input" value="1">
+   <input id="axcIdRxControl" type="input" value="0" hidden>
+   iqPos:<input id="iqPos" type="input" value="0"><br/>
+   <input id="bfOffset" type="input" value="0" hidden>
+   
+   <br/>
+   <input type="submit" value="generate"/>
+   <input type="reset" value="reset" onclick="updateUI()"/><br/><br/>
+</form>
+
+   <p>commands will be listed here: <br/>
+   <div id="txtHint"></div>
+   </p>
+<br/>
+CopyRight 2014 -
+<script>
+	var date = new Date();
+	document.write(date.getFullYear())
+	</script>
+</body>
+</html>
